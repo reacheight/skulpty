@@ -1,5 +1,8 @@
+#!/usr/bin/env node
 var parser = require('./src/index');
-var code = require('fs').readFileSync('./hello.py', 'utf8').replace(/\t/g,'    ');
+var fs = require('fs');
+var path = require('path');
+var code = fs.readFileSync('./hello.py', 'utf8').replace(/\t/g,'    ');
 try {
 	var ast = parser.parse(code);
 
@@ -16,4 +19,6 @@ var codegen = require('escodegen').generate;
 var js = codegen(ast);
 console.log(js);
 global.__pythonRuntime = require('./src/index').pythonRuntime;
-console.log(eval(js));
+// Use the safer Function constructor instead of eval
+const runCode = new Function('__pythonRuntime', 'return ' + js);
+console.log(runCode(global.__pythonRuntime));
