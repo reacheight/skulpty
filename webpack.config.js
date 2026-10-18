@@ -1,10 +1,17 @@
+"use strict";
+
+const path = require("path");
+
 module.exports = {
-	context: __dirname,
-	output: {
-		library: 'filbert',
-		libraryTarget: 'umd',
-		filename: 'skulpty.js',
-		path: './build'
-	},
-	entry: './src/index.js'	
+  mode: "production",
+  context: path.resolve(__dirname),
+  entry: "./src/index.js",
+  output: {
+    library: "filbert",
+    libraryTarget: "umd",
+    globalObject: "this",
+    filename: "skulpty.js",
+    path: path.resolve(__dirname, "build"),
+    clean: true,
+  },
 };

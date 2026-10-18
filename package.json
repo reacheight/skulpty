@@ -1,6 +1,6 @@
 {
   "name": "skulpty",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "build/skulpty.js",
   "scripts": {
@@ -10,11 +10,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "escodegen": "^1.8.0",
-    "webpack": "^1.13.1"
+    "escodegen": "^2.1.0",
+    "webpack": "^5.112.0"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
-    "mocha": "^3.0.2"
+    "chai": "^5.3.3",
+    "mocha": "^12.0.3",
+    "webpack-cli": "^7.2.3"
   }
 }
